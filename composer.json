@@ -1,0 +1,16 @@
+{
+    "name": "peczis/bms-twillio",
+    "type": "project",
+    "require": {
+        "twilio/sdk": "^6.2",
+        "larapack/dd": "^1.1",
+        "phplicengine/bitly": "^1.0",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "authors": [
+        {
+            "name": "Mateusz Pęczkowski",
+            "email": "mateusz@peczis.pl"
+        }
+    ]
+}

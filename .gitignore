@@ -1,0 +1,8 @@
+public/
+public
+/vendor
+.env
+.idea/
+*.nosync
+.DS_Store
+lists/*
