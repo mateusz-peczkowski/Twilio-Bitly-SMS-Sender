@@ -19,13 +19,33 @@
     getenv('BITLY_ACCESS_TOKEN'),
   );
 
-  if (!getenv('LISTS'))
-    return print "You did not provide a list where to send";
+  if (!getenv('LISTS')) {
+    print "You did not provide a list where to send";
+    die;
+  }
+
+  $lists = explode(',', getenv('LISTS'));
+
+  $end = '';
+
+  foreach($lists as $list) {
+    $validateReturn = $twilio->validateListAndReturnPhones($list);
+
+    if ($validateReturn !== 'ok') {
+      $end .= $validateReturn;
+    }
+  }
+
+  if ($end !== '') {
+    print "This list are not valid:<br />";
+    print $end;
+    die;
+  }
 
   $link = $bitly->prepareLink(getenv('LINK'));
 
   if (is_string($link))
-    foreach(explode(',', getenv('LISTS')) as $list)
+    foreach($lists as $list)
       print $twilio->sendMessage(
         trim($list),
         str_replace('[link]', $link, getenv('MESSAGE')),

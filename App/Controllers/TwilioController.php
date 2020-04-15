@@ -20,16 +20,7 @@ class TwilioController
      */
     public function sendMessage($list, $messageTxt)
     {
-      $path = 'lists/' . $list . '.php';
-
-      if (!file_exists($path))
-        return 'List "' . $list . '" not exist<br />';
-
-      $phones = require($path);
-
-      if (!is_array($phones) || !count($phones))
-        return 'List "' . $list . '" is empty<br />';
-
+      $phones = require('lists/' . $list . '.php');
       $returnString = '';
 
       foreach($phones as $phone) {
@@ -49,4 +40,22 @@ class TwilioController
 
       return $returnString;
     }
+
+    /**
+     * Validate list before use
+     */
+     public function validateListAndReturnPhones($list)
+     {
+       $path = 'lists/' . $list . '.php';
+
+       if (!file_exists($path))
+         return 'List "' . $list . '" not exist<br />';
+
+       $phones = require($path);
+
+       if (!is_array($phones) || !count($phones))
+         return 'List "' . $list . '" is empty<br />';
+
+       return 'ok';
+     }
 }
