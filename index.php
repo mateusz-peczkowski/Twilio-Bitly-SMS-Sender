@@ -19,13 +19,14 @@
     getenv('BITLY_ACCESS_TOKEN'),
   );
 
-  $link = $bitly->prepareLink('https://google.com');
+  $link = $bitly->prepareLink(getenv('LINK'));
 
   if (is_string($link))
-    print $twilio->sendMessage(
-      'me', //me, us, managers, clients
-      "FLASH FEEDBACK. BARE International is collecting data about your recent task. Please take a moment to respond to this short survey. $link. To opt-out reply STOP, Msg & Data rates may apply.",
-    );
+    foreach(explode(',', getenv('LISTS')) as $list)
+      print $twilio->sendMessage(
+        trim($list),
+        str_replace('[link]', $link, getenv('MESSAGE')),
+      );
   else
     print $link['status'] . ' - ' . $link['description'];
 ?>

@@ -5,4 +5,4 @@ public
 .idea/
 *.nosync
 .DS_Store
-lists/*
+lists/*.php

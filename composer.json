@@ -1,16 +1,18 @@
 {
-    "name": "peczis/bms-twillio",
+    "name": "mateusz-peczkowski/twilio-bitly-sms-sender",
     "type": "project",
-    "require": {
-        "twilio/sdk": "^6.2",
-        "larapack/dd": "^1.1",
-        "phplicengine/bitly": "^1.0",
-        "vlucas/phpdotenv": "^4.1"
-    },
     "authors": [
         {
             "name": "Mateusz Pęczkowski",
             "email": "mateusz@peczis.pl"
         }
-    ]
+    ],
+    "require": {
+        "twilio/sdk": "^6.2",
+        "phplicengine/bitly": "^1.0",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "require-dev": {
+        "larapack/dd": "^1.1"
+    }
 }

@@ -23,12 +23,12 @@ class TwilioController
       $path = 'lists/' . $list . '.php';
 
       if (!file_exists($path))
-        return 'List not exist';
+        return 'List "' . $list . '" not exist<br />';
 
       $phones = require($path);
 
       if (!is_array($phones) || !count($phones))
-        return 'List is empty';
+        return 'List "' . $list . '" is empty<br />';
 
       $returnString = '';
 

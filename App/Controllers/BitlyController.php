@@ -20,6 +20,9 @@ class BitlyController
      */
     public function prepareLink($link)
     {
+      if (!getenv('BITLY_ENABLED'))
+        return $link;
+
       $resultLink = $this->bitlink->createBitlink(['long_url' => $link]);
 
       if ($this->api->isCurlError()) // if cURL error occurs
