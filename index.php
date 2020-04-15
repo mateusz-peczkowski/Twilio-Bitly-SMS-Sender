@@ -19,6 +19,9 @@
     getenv('BITLY_ACCESS_TOKEN'),
   );
 
+  if (!getenv('LISTS'))
+    return print "You did not provide a list where to send";
+
   $link = $bitly->prepareLink(getenv('LINK'));
 
   if (is_string($link))
