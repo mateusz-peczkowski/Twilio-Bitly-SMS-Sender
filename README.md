@@ -25,12 +25,12 @@ TWILIO_SID -> SID from Twilio account
 TWILIO_TOKEN -> Token from Twilio account
 TWILIO_FROM_NUMBER -> Number that you have bought at Twilio from which you will send SMS
 
-BITLY_ENABLED=1 -> Option to make shorten links optional (0|1)
-BITLY_ACCESS_TOKEN= -> Token from Bitly service
+BITLY_ENABLED -> Option to make shorten links optional (0|1)
+BITLY_ACCESS_TOKEN -> Token from Bitly service
 
-LISTS= -> names of files from the `lists` folder for which you want to send SMS. Can be multiply divided by `,`
-LINK= -> Full, long URL that you want to share inside SMS. This will be shortened by Bit.ly if enabled
-MESSAGE= -> Copy of an SMS that will go to your lists people. If you want to use the link from an above place somewhere `[LINK]` inside this copy
+LISTS -> names of files from the `lists` folder for which you want to send SMS. Can be multiply divided by `,`
+LINK -> Full, long URL that you want to share inside SMS. This will be shortened by Bit.ly if enabled
+MESSAGE -> Copy of an SMS that will go to your lists people. If you want to use the link from an above place somewhere `[LINK]` inside this copy
 ```
 
 ## Packages used
